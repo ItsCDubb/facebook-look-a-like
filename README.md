@@ -1,6 +1,6 @@
 # Facebook Look-a-like
 
-Website that is designed using React (npx create-react-app)
+Website designed & built using React (npx create-react-app)
 
 ### Built & designed by:
 
