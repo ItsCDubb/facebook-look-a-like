@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import Feed from "./Feed";
+import Widget from "./Widget";
+import Login from "./Login";
+import { useStateValue } from "./StateProvider";
+import "./App.css";
 
 function App() {
+  const [{ user }, dispatch] = useStateValue();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // Use the BEM Naming Convention...
+    <div className="app">
+      {!user ? (
+        <Login />
+      ) : (
+        <>
+          {/* Header */}
+          <Header />
+          {/* Body */}
+          <div className="app__body">
+            {/* Sidebar */}
+            <Sidebar />
+            {/* Feed */}
+            <Feed />
+            {/* Widgets */}
+            <Widget />
+          </div>
+        </>
+      )}
     </div>
   );
 }
